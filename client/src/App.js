@@ -13,67 +13,9 @@ import {
 } from "@mui/material";
 import GlobalStyles from "@mui/material/GlobalStyles";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { styles } from "./styles";
 
-const useStyles = makeStyles({
-  container: {
-    marginTop: "2rem",
-    display: "grid",
-    justifyContent: "space-between",
-  },
-  heading: {
-    marginBottom: "1rem",
-    textAlign: "center",
-    fontWeight: "bold",
-  },
-  headingUndone: {
-    marginBottom: "1rem",
-  },
-  headingDone: {
-    paddingTop: "1rem",
-  },
-  form: {
-    display: "grid",
-    alignItems: "center",
-    gap: "1rem",
-    margin: "2rem",
-  },
-  buttonContainer: {
-    display: "grid",
-    justifyContent: "center",
-  },
-  taskList: {
-    marginTop: "2rem",
-    width: "100%",
-  },
-  taskCardDone: {
-    marginBottom: "0.5rem",
-    padding: "1rem",
-    borderRadius: "0.5rem",
-    backgroundColor: "#CCCCCC",
-    border: "3px solid #000",
-    display: "flex",
-    justifyContent: "space-between",
-  },
-  taskCard: {
-    marginBottom: "0.5rem",
-    padding: "1rem",
-    borderRadius: "0.5rem",
-    backgroundColor: "#fff",
-    border: "3px solid #000",
-    display: "flex",
-    justifyContent: "space-between",
-  },
-  checkbox: {
-    color: "#000000 !important",
-  },
-  empty: {
-    textAlign: "center",
-    margin: "1rem",
-  },
-  magic: {
-    textAlign: "center",
-  },
-});
+const useStyles = makeStyles(styles);
 
 function App() {
   const [form, setForm] = useState("");
@@ -123,6 +65,7 @@ function App() {
 
   const doneTasks = tasks.filter(({ id }) => checkedState[id]);
   const undoneTasks = tasks.filter(({ id }) => !checkedState[id]);
+
   const handleCheckboxChange = (taskId, checked) => {
     setCheckedState((prevState) => ({
       ...prevState,
